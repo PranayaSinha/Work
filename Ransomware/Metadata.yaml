@@ -1,0 +1,11 @@
+Name: Ransomware Exploit
+Technology: standalone
+Type: active
+Engine: Python, golang
+Description: Description of your exploit
+UploadEnabled: false
+Charset: UTF-8
+tags:
+  cloud: MoveIt
+Params:
+  Target: '{{.Target}}'
