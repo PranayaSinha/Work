@@ -1,0 +1,37 @@
+version: '3.8'
+
+services:
+  # api-server:
+  #   build:
+  #     context: ./api-server
+  #   ports:
+  #     - "8080:3000"
+  #   networks:
+  #     - default
+
+  redis:
+    image: docker.io/library/redis:latest  # Full path for Podman to recognize the image
+    container_name: my-redis
+    ports:
+      - "6379:6379"
+    networks:
+      - default
+
+  # Uncomment and modify these if you need additional services
+  # matchmaking-server:
+  #   build: ./matchmaking-server
+  #   ports:
+  #     - "8081:8080"
+  #   networks:
+  #     - default
+
+  # signaling-server:
+  #   build: ./signaling-server
+  #   ports:
+  #     - "8082:8080"
+  #   networks:
+  #     - default
+
+networks:
+  default:
+    driver: bridge
