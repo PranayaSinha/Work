@@ -1,0 +1,42 @@
+# infrastructure/kubernetes/dev/signaling-servers.yml
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: signaling-server
+  namespace: dev
+spec:
+  serviceName: "signaling-server"
+  replicas: 1
+  selector:
+    matchLabels:
+      app: signaling-server
+  template:
+    metadata:
+      labels:
+        app: signaling-server
+    spec:
+      containers:
+      - name: signaling-server
+        image: your-docker-repo/signaling-server:latest
+        ports:
+        - containerPort: 8080
+        resources:
+          requests:
+            cpu: "500m"
+            memory: "512Mi"
+          limits:
+            cpu: "1"
+            memory: "1Gi"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: signaling-server-headless
+  namespace: dev
+spec:
+  ports:
+  - port: 8080
+    name: web
+  clusterIP: None
+  selector:
+    app: signaling-server
