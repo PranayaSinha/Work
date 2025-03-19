@@ -1,0 +1,93 @@
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJrcmlzaCIsImlhdCI6MTczMjYzMTA0NSwiZXhwIjoxNzMyNzE3NDQ1fQ.FWP7EaAfc2fbi3gTtQ4Xim-RmGaK94G_XwYn8HsbkUg
+
+### Create User
+POST http://0.0.0.0:3000/register
+Content-Type: application/json
+
+{
+	"username": "krishsh",
+	"password": "StrongPass1!",
+	"email": "Test"
+}
+### NOTE: Keeping email empty to not accidentally use the ms service
+
+### Verify User Email
+GET http://0.0.0.0:3000/verifyEmail?token=84d46033-5e9a-4960-b947-aeaffc243f30
+
+### Login User
+POST http://0.0.0.0:3000/login
+Content-Type: application/json
+
+{
+	"username": "krish",
+	"password": "StrongPass1!"
+}
+
+### Resend Verification Email
+POST http://0.0.0.0:3000/resendVerificationEmail
+Content-Type: application/json
+
+{
+	"email": ""
+}
+
+### Equip Cosmetics
+### Item ID is in items.md
+POST http://0.0.0.0:3000/equip/cosmetics
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+	"playerId": 1,
+	"cosmetics": [
+    { "part": "head", "itemId": 1 },
+		{ "part": "chest", "itemId": 8 },
+    { "part": "legs", "itemId": 14 },
+    { "part": "feet", "itemId": 10 },
+    { "part": "hands", "itemId": 16 },
+		{ "part": "accessory1", "itemId": 27},
+		{ "part": "accessory2", "itemId": 29}
+	]
+}
+
+### Test Protected Auth Route
+GET http://0.0.0.0:3000/test-login-jwt
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+### Gold Item Exchange
+POST http://0.0.0.0:3000/goldItemExchange
+Content-Type: application/json
+
+{
+	// Include any necessary payload for testing, if required.
+	"itemId": "item123",
+	"quantity": 10
+}
+
+### Get User Gold
+GET http://0.0.0.0:3000/getGold?userId=1
+Content-Type: application/json
+
+### Create Item
+POST http://0.0.0.0:3000/items/create
+Content-Type: application/json
+
+{
+    "type": "weapon",
+    "owner_id": 1,
+    "in_market": false
+}
+
+### Verify an Item
+PUT http://0.0.0.0:3000/items/1/verify
+Content-Type: application/json
+
+{
+    "isVerified": true
+}
+
+### Find an Item
+GET http://0.0.0.0:3000/items/4
+Content-Type: application/json
+
