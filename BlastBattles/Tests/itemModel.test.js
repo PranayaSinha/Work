@@ -30,6 +30,8 @@ describe('Item Model Functional Tests', function () {
 
     after(async function () {
         this.timeout(30000);
+        await redisClient.quit();
+        await knexInstance.destroy();
     });
 
     it('should insert and retrieve an item in the item_instances table', async function () {

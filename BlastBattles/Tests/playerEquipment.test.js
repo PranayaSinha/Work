@@ -36,6 +36,8 @@ describe('Player Equipment Tests', function () {
 
   after(async function () {
     this.timeout(30000);
+    await redisClient.quit();
+    await knexInstance.destroy();
   });
   const mockPlayerId = 1;
   it('should throw an error if some cosmetics do not exist', async () => {
