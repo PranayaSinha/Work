@@ -5,7 +5,7 @@ import {
     unflagItem, 
     findItemById, 
     findItemsByOwner 
-} from "../../playerItems/model/itemModel.js";
+} from "../itemModel/itemModel.js";
 
 export const createItemHandler = async (req, reply) => {
     try {
