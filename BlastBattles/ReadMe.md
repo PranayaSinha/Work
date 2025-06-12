@@ -34,7 +34,7 @@ bash setup.sh
 
 Then, to get all servers up and running in podman, run:
 
-`bash fresh-compose.bash # Clear old images/containers, compose up fresh containers`
+`bash fresh_compose.bash # Clear old images/containers, compose up fresh containers`
 
 
 NOTE: If you're having CNI issues, then Ubuntu mis-installed your CNI.
