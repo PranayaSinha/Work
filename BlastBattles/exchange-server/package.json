@@ -1,0 +1,22 @@
+{
+  "name": "blastbattles-exchange-server",
+  "module": "index.ts",
+  "type": "module",
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "pino": "^9.0.0",
+    "ws": "^8.17.0",
+    "mocha": "^10.5.2",
+    "chai": "^5.1.1"
+  },
+  "scripts": {
+    "start": "bun run index.ts",
+    "start:debug": "env PINO_LOG_LEVEL=debug bun run index.ts",
+    "test": "bun test"
+  }
+}

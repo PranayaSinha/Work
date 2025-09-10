@@ -7,7 +7,7 @@ This repository contains the backend infrastructure for the game Blast Battles. 
 - **api-server**: Handles REST API requests for trading, equipping, purchases, upgrades, and other game-related operations.
 - **matchmaking-server**: WebSocket server responsible for quickly finding matches based on MMR. Future enhancements will include matching based on relative player latency.
 - **signaling-server**: Coordinates connecting players for found matches via WebRTC.
-- **exchange-server**: [TODO] Will handle bid/ask matching for all items in round-robin fashion
+- **exchange-server**: Will handle bid/ask matching for all items in round-robin fashion
 - **match-processor-server**: [TODO] Processes matches via polling to verify resources/items received from a match to ensure economic stability and resource cheating prevention.
 - **bookkeeping-server**: [TODO] Will handle leaderboards, cron job type processing, etc
 - **godot-verification-server**: [TODO] [Ignored for now]
